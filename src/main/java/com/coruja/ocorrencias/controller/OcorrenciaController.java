@@ -16,25 +16,18 @@ import jakarta.validation.Valid;
 public class OcorrenciaController {
 
     private final OcorrenciaService service;
-    
-public OcorrenciaController(OcorrenciaService service) {
+
+    public OcorrenciaController(OcorrenciaService service) {
         this.service = service;
     }
-@PostMapping
-public ResponseEntity<Void> salvar(@Valid @ModelAttribute OcorrenciaDTO dto){
 
-    service.salvar(dto);
-    
+    @PostMapping
+    public ResponseEntity<Void> salvar(@Valid @ModelAttribute OcorrenciaDTO dto) {
 
-    return ResponseEntity.status(201).build();
+        service.salvar(dto);
 
-}
+        return ResponseEntity.status(201).build();
 
-
-
-
-
-
-
+    }
 
 }
