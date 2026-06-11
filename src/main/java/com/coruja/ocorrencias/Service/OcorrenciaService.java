@@ -29,7 +29,7 @@ public class OcorrenciaService {
         this.repository = repository;
     }
 
-    //James
+    
 
 
     public OcorrenciaEntity salvar(OcorrenciaDTO dto) {
