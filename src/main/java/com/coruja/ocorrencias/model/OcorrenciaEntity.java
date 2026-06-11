@@ -25,8 +25,6 @@ public class OcorrenciaEntity {
     private List<String> caminhoFoto;
     private LocalDateTime dataCriacao;
 
-
-    // testee
     public Long getId() {
         return id;
     }
