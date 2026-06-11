@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.coruja.ocorrencias.dto.OcorrenciaDTO;
 import com.coruja.ocorrencias.service.OcorrenciaService;
-
 import jakarta.validation.Valid;
 
 @RestController
