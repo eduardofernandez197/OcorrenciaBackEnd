@@ -1,0 +1,9 @@
+com\coruja\ocorrencias\model\OcorrenciaEntity.class
+com\coruja\ocorrencias\service\Validacoes\ValidaTitulo.class
+com\coruja\ocorrencias\service\ValidaOcorrenciaInterface.class
+com\coruja\ocorrencias\repository\RepositoryJPA.class
+com\coruja\ocorrencias\service\OcorrenciaService.class
+com\coruja\ocorrencias\dto\OcorrenciaDTO.class
+com\coruja\ocorrencias\service\Validacoes\ValidaFotos.class
+com\coruja\ocorrencias\OcorrenciasApplication.class
+com\coruja\ocorrencias\controller\OcorrenciaController.class

@@ -7,6 +7,4 @@ import com.coruja.ocorrencias.model.OcorrenciaEntity;
 
 public interface RepositoryJPA extends JpaRepository<OcorrenciaEntity, Long> {
 
-    
-
 }

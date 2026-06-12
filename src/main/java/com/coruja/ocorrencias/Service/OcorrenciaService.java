@@ -23,14 +23,10 @@ public class OcorrenciaService {
     private List<ValidaOcorrenciaInterface> validacoes;
     private final RepositoryJPA repository;
 
-
     public OcorrenciaService(List<ValidaOcorrenciaInterface> validacoes, RepositoryJPA repository) {
         this.validacoes = validacoes;
         this.repository = repository;
     }
-
-    
-
 
     public OcorrenciaEntity salvar(OcorrenciaDTO dto) {
 
@@ -43,26 +39,25 @@ public class OcorrenciaService {
 
         Path pastaUpload = Path.of("upload");
         try {
-            for (MultipartFile caminhofotos : dto.getFoto()){
-             Files.createDirectories(pastaUpload);
-     
- 
-             String caminho = caminhofotos.getOriginalFilename();
- 
-             String nomeOriginal = UUID.randomUUID() + "-" + caminho;
- 
-             Path destino = pastaUpload.resolve(nomeOriginal);
- 
-             caminhofotos.transferTo(destino);
- 
-             caminhos.add("ocorrencias" + nomeOriginal);
-         }
- 
-       } catch (IOException e) {
-        throw new RuntimeException("Erro ao salvar foto na pasta upload - local", e);
-       }
+            for (MultipartFile caminhofotos : dto.getFoto()) {
+                Files.createDirectories(pastaUpload);
 
-         OcorrenciaEntity entity = new OcorrenciaEntity();
+                String caminho = caminhofotos.getOriginalFilename();
+
+                String nomeOriginal = UUID.randomUUID() + "-" + caminho;
+
+                Path destino = pastaUpload.resolve(nomeOriginal);
+
+                caminhofotos.transferTo(destino);
+
+                caminhos.add("ocorrencias" + nomeOriginal);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException("Erro ao salvar foto na pasta upload - local", e);
+        }
+
+        OcorrenciaEntity entity = new OcorrenciaEntity();
         entity.setTitulo(dto.getTitulo());
         entity.setDescricao(dto.getDescricao());
         entity.setDataCriacao(LocalDateTime.now());
