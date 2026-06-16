@@ -7,19 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.coruja.ocorrencias.context.Contexto;
-import com.coruja.ocorrencias.dto.OcorrenciaDTO;
 import com.coruja.ocorrencias.service.ValidaOcorrenciaInterface;
 
-public class ValidaSalvafoto implements ValidaOcorrenciaInterface{
+@Component
+public class ValidaSalvafoto implements ValidaOcorrenciaInterface {
 
-    public Contexto validar (Contexto context){
+    public Contexto validar(Contexto context) {
 
         List<String> caminhos = new ArrayList<>();
 
-     Path pastaUpload = Path.of("upload");
+        Path pastaUpload = Path.of("upload");
 
         try {
             for (MultipartFile caminhofotos : context.getDto().getFoto()) {
@@ -39,9 +40,9 @@ public class ValidaSalvafoto implements ValidaOcorrenciaInterface{
         } catch (IOException e) {
             throw new RuntimeException("Erro ao salvar foto na pasta upload - local", e);
         }
-        
+
         context.setCaminhos(caminhos);
-        
-        return  context;
-}
+
+        return context;
+    }
 }

@@ -11,7 +11,7 @@ import com.coruja.ocorrencias.service.OcorrenciaService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/ocorrencias")
+@RequestMapping("/upload")
 public class OcorrenciaController {
 
     private final OcorrenciaService service;
