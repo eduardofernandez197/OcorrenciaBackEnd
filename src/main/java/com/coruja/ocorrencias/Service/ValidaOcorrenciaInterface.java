@@ -1,7 +1,8 @@
 package com.coruja.ocorrencias.service;
 
-import com.coruja.ocorrencias.dto.OcorrenciaDTO;
+import com.coruja.ocorrencias.context.Contexto;
+
 
 public interface ValidaOcorrenciaInterface {
-     OcorrenciaDTO validar (OcorrenciaDTO ocorrenciaDTO);
+     Contexto validar (Contexto context);
 }

@@ -20,7 +20,6 @@ public class OcorrenciaDTO {
     @NotEmpty(message = "Precisa encaminhar algum anexo")
     private List<MultipartFile> foto;
 
-
     public String getTitulo() {
         return titulo;
     }

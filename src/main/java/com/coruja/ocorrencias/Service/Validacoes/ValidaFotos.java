@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.coruja.ocorrencias.context.Contexto;
 import com.coruja.ocorrencias.dto.OcorrenciaDTO;
 import com.coruja.ocorrencias.service.ValidaOcorrenciaInterface;
 @Component
@@ -12,9 +13,9 @@ import com.coruja.ocorrencias.service.ValidaOcorrenciaInterface;
 public class ValidaFotos implements ValidaOcorrenciaInterface {
     //Metodo que valida se a foto nao veio vazia e se veio no formato certo
 
-    public OcorrenciaDTO validar(OcorrenciaDTO dto) {
+    public Contexto validar(Contexto context) {
 
-        List<MultipartFile> foto = dto.getFoto();
+        List<MultipartFile> foto = context.getDto().getFoto();
 
         for (MultipartFile fotos : foto) {
             String nome = fotos.getOriginalFilename();
@@ -26,7 +27,7 @@ public class ValidaFotos implements ValidaOcorrenciaInterface {
                 throw new RuntimeException("Apenas arquivos JPG e PNG sao permitidos");
             }
         }
-        return dto;
+        return context;
 
     }
 }

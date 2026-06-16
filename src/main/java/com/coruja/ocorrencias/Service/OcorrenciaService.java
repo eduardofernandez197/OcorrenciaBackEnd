@@ -8,61 +8,45 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.management.RuntimeErrorException;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.coruja.ocorrencias.dto.OcorrenciaDTO;
+import com.coruja.ocorrencias.context.Contexto;
 import com.coruja.ocorrencias.model.OcorrenciaEntity;
 import com.coruja.ocorrencias.repository.RepositoryJPA;
+import com.coruja.ocorrencias.service.Validacoes.ValidaSalvafoto;
 
 @Service
 public class OcorrenciaService {
 
     private List<ValidaOcorrenciaInterface> validacoes;
     private final RepositoryJPA repository;
+    private final ValidaSalvafoto validaFoto;
 
-    public OcorrenciaService(List<ValidaOcorrenciaInterface> validacoes, RepositoryJPA repository) {
+   
+    public OcorrenciaService(List<ValidaOcorrenciaInterface> validacoes, RepositoryJPA repository,
+            ValidaSalvafoto validaFoto) {
         this.validacoes = validacoes;
         this.repository = repository;
+        this.validaFoto = validaFoto;
     }
 
-    public OcorrenciaEntity salvar(OcorrenciaDTO dto) {
 
-        validacoes.forEach(interfacevalidar -> interfacevalidar.validar(dto));
+    public OcorrenciaEntity salvar(Contexto context) {
+
+        validacoes.forEach(interfacevalidar -> interfacevalidar.validar(context));
         // Para cada classe que implementar a interface ValidaOcorrencia vai fazer o
         // interfaceValidar.validar, vai executar o metodo validar dentro delas com o
         // (dto) como parametro.
 
-        List<String> caminhos = new ArrayList<>();
-
-        Path pastaUpload = Path.of("upload");
-        try {
-            for (MultipartFile caminhofotos : dto.getFoto()) {
-                Files.createDirectories(pastaUpload);
-
-                String caminho = caminhofotos.getOriginalFilename();
-
-                String nomeOriginal = UUID.randomUUID() + "-" + caminho;
-
-                Path destino = pastaUpload.resolve(nomeOriginal);
-
-                caminhofotos.transferTo(destino);
-
-                caminhos.add("ocorrencias" + nomeOriginal);
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException("Erro ao salvar foto na pasta upload - local", e);
-        }
+       
 
         OcorrenciaEntity entity = new OcorrenciaEntity();
-        entity.setTitulo(dto.getTitulo());
-        entity.setDescricao(dto.getDescricao());
+        entity.setTitulo(context.getDto().getTitulo());
+        entity.setDescricao(context.getDto().getDescricao());
         entity.setDataCriacao(LocalDateTime.now());
-        entity.setEmailDestino(dto.getEmailDestino());
-        entity.setCaminhoFoto(caminhos);
+        entity.setEmailDestino(context.getDto().getEmailDestino());
+        entity.setCaminhoFoto(context.getCaminhos());
 
         return repository.save(entity);
 
