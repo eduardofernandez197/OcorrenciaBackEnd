@@ -7,10 +7,11 @@ import com.coruja.ocorrencias.service.ValidaOcorrenciaInterface;
 @Component
 public class ValidaTitulo implements ValidaOcorrenciaInterface {
 
-    public void validar (OcorrenciaDTO dto){
+    public OcorrenciaDTO validar (OcorrenciaDTO dto){
         if (dto.getTitulo() == null || dto.getTitulo().isBlank()) {
         throw new RuntimeException("Titulo nao pode ser vazio, ou nullo");      
         }
+        return dto;
     }
     
 }

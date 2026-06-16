@@ -12,7 +12,7 @@ import com.coruja.ocorrencias.service.ValidaOcorrenciaInterface;
 public class ValidaFotos implements ValidaOcorrenciaInterface {
     //Metodo que valida se a foto nao veio vazia e se veio no formato certo
 
-    public void validar(OcorrenciaDTO dto) {
+    public OcorrenciaDTO validar(OcorrenciaDTO dto) {
 
         List<MultipartFile> foto = dto.getFoto();
 
@@ -26,6 +26,7 @@ public class ValidaFotos implements ValidaOcorrenciaInterface {
                 throw new RuntimeException("Apenas arquivos JPG e PNG sao permitidos");
             }
         }
+        return dto;
 
     }
 }
