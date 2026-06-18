@@ -1,4 +1,4 @@
-package com.coruja.ocorrencias.service.Validacoes;
+package com.coruja.ocorrencias.service.storage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,20 +10,26 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.coruja.ocorrencias.context.Contexto;
-import com.coruja.ocorrencias.service.ValidaOcorrenciaInterface;
+import com.coruja.ocorrencias.config.FileStorageConfig;
+import com.coruja.ocorrencias.dto.OcorrenciaDTO;
 
 @Component
-public class ValidaSalvafoto implements ValidaOcorrenciaInterface {
+public class FotoStorageService {
 
-    public Contexto validar(Contexto context) {
+    private FileStorageConfig file;
+
+    public FotoStorageService(FileStorageConfig file) {
+        this.file = file;
+    }
+
+    public List<String> salvarCaminho (OcorrenciaDTO dto) {
 
         List<String> caminhos = new ArrayList<>();
 
-        Path pastaUpload = Path.of("upload");
+        Path pastaUpload = Path.of(file.getUploadDir());
 
         try {
-            for (MultipartFile caminhofotos : context.getDto().getFoto()) {
+            for (MultipartFile caminhofotos : dto.getFoto()) {
                 Files.createDirectories(pastaUpload);
 
                 String caminho = caminhofotos.getOriginalFilename();
@@ -34,15 +40,13 @@ public class ValidaSalvafoto implements ValidaOcorrenciaInterface {
 
                 caminhofotos.transferTo(destino);
 
-                caminhos.add("ocorrencias" + nomeOriginal);
+                caminhos.add("ocorrencias/" + nomeOriginal);
             }
 
         } catch (IOException e) {
             throw new RuntimeException("Erro ao salvar foto na pasta upload - local", e);
         }
+        return caminhos;
 
-        context.setCaminhos(caminhos);
-
-        return context;
     }
 }
