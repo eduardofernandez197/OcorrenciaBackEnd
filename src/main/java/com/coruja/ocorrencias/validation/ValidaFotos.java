@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.coruja.ocorrencias.dto.OcorrenciaDTO;
+import com.coruja.ocorrencias.exception.BusinessException;
 @Component
 
 public class ValidaFotos implements ValidaOcorrenciaInterface {
@@ -18,11 +19,11 @@ public class ValidaFotos implements ValidaOcorrenciaInterface {
         for (MultipartFile fotos : foto) {
             String nome = fotos.getOriginalFilename();
             if (nome == null) {
-                throw new RuntimeException("Foto veio null");
+                throw new BusinessException("Foto veio null");
             }
             String ext = nome.substring(nome.lastIndexOf(".") + 1).toLowerCase();
             if (!ext.equals("jpg") && !ext.equals("jpeg") && !ext.equals("png")) {
-                throw new RuntimeException("Apenas arquivos JPG e PNG sao permitidos");
+                throw new BusinessException("Apenas arquivos JPG e PNG sao permitidos");
             }
         }
         return dto;

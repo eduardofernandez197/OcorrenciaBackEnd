@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.coruja.ocorrencias.config.FileStorageConfig;
 import com.coruja.ocorrencias.dto.OcorrenciaDTO;
 
+import jakarta.validation.ValidationException;
+
 @Component
 public class FotoStorageService {
 
@@ -44,7 +46,7 @@ public class FotoStorageService {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException("Erro ao salvar foto na pasta upload - local", e);
+            throw new ValidationException("Erro ao salvar foto na pasta upload - local", e);
         }
         return caminhos;
 
