@@ -12,6 +12,15 @@ public class OcorrenciaDTO {
 
     @NotBlank(message = "Titulo é Obrigatório")
     private String titulo;
+    private String provedor;
+    public String getProvedor() {
+        return provedor;
+    }
+
+    public void setProvedor(String provedor) {
+        this.provedor = provedor;
+    }
+
     @NotBlank(message = "Descrição é Obrigatório")
     private String descricao;
     @NotBlank(message = "E-mail e Obrigatório")
