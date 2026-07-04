@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.coruja.ocorrencias.config.FileStorageConfig;
-import com.coruja.ocorrencias.dto.OcorrenciaDTO;
+import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 
 import jakarta.validation.ValidationException;
 
@@ -24,7 +24,7 @@ public class FotoStorageService {
         this.file = file;
     }
 
-    public List<String> salvarCaminho (OcorrenciaDTO dto) {
+    public List<String> salvarCaminho (OcorrenciaRequestDTO dto) {
 
         List<String> caminhos = new ArrayList<>();
 

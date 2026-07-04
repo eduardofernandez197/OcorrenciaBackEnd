@@ -1,15 +1,19 @@
 package com.coruja.ocorrencias.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity(name = "relatorioocorrencia")
 public class OcorrenciaEntity {
@@ -18,59 +22,36 @@ public class OcorrenciaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String titulo;
-    private String descricao;
-    private String emailDestino;
-    @ElementCollection
-    private List<String> caminhoFoto;
-    private LocalDateTime dataCriacao;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(nullable = false)
+    private String cliente;
+    @Column(nullable = false)
+    private String localizacao;
+  
+    private String setor;
+    private String area;
+    private String departamento;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(nullable = false)
+    private String responsavel;
+    
+    @Column(name = "data_inspecao", nullable = false)
+    private LocalDate data_inspecao;
 
-    public String getTitulo() {
-        return titulo;
-    }
+    @Column(nullable = false)
+    private String revisao;
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusOcorrencia status = StatusOcorrencia.DRAFT;
 
-    public String getDescricao() {
-        return descricao;
-    }
+     @OneToMany(mappedBy = "ocorrencia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ObservacaoOcorrencia> observacoes = new ArrayList<>();
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    
 
-    public String getEmailDestino() {
-        return emailDestino;
-    }
-
-    public void setEmailDestino(String emailDestino) {
-        this.emailDestino = emailDestino;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDateTime dataCriacao) {
-        this.dataCriacao = dataCriacao;
-    }
-
-    public List<String> getCaminhoFoto() {
-        return caminhoFoto;
-    }
-
-    public void setCaminhoFoto(List<String> caminhoFoto) {
-        this.caminhoFoto = caminhoFoto;
-    }
+  
 
 }

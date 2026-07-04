@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.coruja.ocorrencias.dto.OcorrenciaDTO;
+import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.exception.BusinessException;
 @Component
 
-public class ValidaFotos implements ValidaOcorrenciaInterface {
+public class ValidaFotos implements OcorrenciaValidator {
     //Metodo que valida se a foto nao veio vazia e se veio no formato certo
 
-    public OcorrenciaDTO validar(OcorrenciaDTO dto) {
+    public OcorrenciaRequestDTO validar(OcorrenciaRequestDTO dto) {
 
         List<MultipartFile> foto = dto.getFoto();
 

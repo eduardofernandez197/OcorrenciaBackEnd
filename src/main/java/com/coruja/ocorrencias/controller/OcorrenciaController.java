@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.coruja.ocorrencias.dto.OcorrenciaDTO;
+import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.service.OcorrenciaService;
 import jakarta.validation.Valid;
 
@@ -21,7 +21,7 @@ public class OcorrenciaController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> salvar(@Valid @ModelAttribute OcorrenciaDTO dto) {
+    public ResponseEntity<Void> salvar(@Valid @ModelAttribute OcorrenciaRequestDTO dto) {
 
         service.salvar(dto);
 

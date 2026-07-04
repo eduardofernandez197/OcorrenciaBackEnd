@@ -5,27 +5,27 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.coruja.ocorrencias.dto.OcorrenciaDTO;
+import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.model.OcorrenciaEntity;
-import com.coruja.ocorrencias.repository.RepositoryJPA;
+import com.coruja.ocorrencias.repository.OcorrenciaRepository;
 import com.coruja.ocorrencias.service.storage.FotoStorageService;
-import com.coruja.ocorrencias.validation.ValidaOcorrenciaInterface;
+import com.coruja.ocorrencias.validation.OcorrenciaValidator;
 
 @Service
 public class OcorrenciaService {
 
     private FotoStorageService foto;
-    private List<ValidaOcorrenciaInterface> validacoes;
-    private final RepositoryJPA repository;
+    private List<OcorrenciaValidator> validacoes;
+    private final OcorrenciaRepository repository;
 
-    public OcorrenciaService(FotoStorageService foto, List<ValidaOcorrenciaInterface> validacoes,
-            RepositoryJPA repository) {
+    public OcorrenciaService(FotoStorageService foto, List<OcorrenciaValidator> validacoes,
+            OcorrenciaRepository repository) {
         this.foto = foto;
         this.validacoes = validacoes;
         this.repository = repository;
     }
 
-    public OcorrenciaEntity salvar(OcorrenciaDTO dto) {
+    public OcorrenciaEntity salvar(OcorrenciaRequestDTO dto) {
 
         validacoes.forEach(interfacevalidar -> interfacevalidar.validar(dto));
         // Para cada classe que implementar a interface ValidaOcorrencia vai fazer o
