@@ -6,42 +6,29 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
+import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 import com.coruja.ocorrencias.entity.Ocorrencia;
+import com.coruja.ocorrencias.mapper.OcorrenciaMapper;
 import com.coruja.ocorrencias.repository.OcorrenciaRepository;
-import com.coruja.ocorrencias.service.storage.FotoStorageService;
-import com.coruja.ocorrencias.validation.OcorrenciaValidator;
 
 @Service
 public class OcorrenciaService {
+    
+    private Ocorrencia ocorrencia;
+    private OcorrenciaMapper ocorrenciaMapper;
 
-    private FotoStorageService foto;
-    private List<OcorrenciaValidator> validacoes;
-    private final OcorrenciaRepository repository;
-
-    public OcorrenciaService(FotoStorageService foto, List<OcorrenciaValidator> validacoes,
-            OcorrenciaRepository repository) {
-        this.foto = foto;
-        this.validacoes = validacoes;
-        this.repository = repository;
+    
+    public OcorrenciaService(Ocorrencia ocorrencia, OcorrenciaMapper ocorrenciaMapper) {
+        this.ocorrencia = ocorrencia;
+        this.ocorrenciaMapper = ocorrenciaMapper;
     }
+    public OcorrenciaResponseDTO salvar (OcorrenciaRequestDTO dto) {
 
-    public Ocorrencia salvar(OcorrenciaRequestDTO dto) {
+            Ocorrencia ocorrencia = ocorrenciaMapper.toEntity(dto);
+            
 
-        validacoes.forEach(interfacevalidar -> interfacevalidar.validar(dto));
-        // Para cada classe que implementar a interface ValidaOcorrencia vai fazer o
-        // interfaceValidar.validar, vai executar o metodo validar dentro delas com o
-        // (dto) como parametro.
 
-        List<String> caminhos = foto.salvarCaminho(dto);
 
-        // Ocorrencia entity = new Ocorrencia();
-        // entity.setTitulo(dto.getTitulo());
-        // entity.setDescricao(dto.getDescricao());
-        // entity.setDataCriacao(LocalDateTime.now());
-        // entity.setEmailDestino(dto.getEmailDestino());
-        // entity.setCaminhoFoto(caminhos);
+        return save();
 
-        return repository.save(entity);
-
-    }
-}
+}}

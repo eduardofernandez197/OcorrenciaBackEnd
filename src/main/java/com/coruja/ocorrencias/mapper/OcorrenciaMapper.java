@@ -6,7 +6,7 @@ import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 import com.coruja.ocorrencias.entity.Ocorrencia;
 
-public class OcorrenciaDTO {
+public class OcorrenciaMapper {
 
     public Ocorrencia toEntity(OcorrenciaRequestDTO dto) {
         if (dto == null) {
