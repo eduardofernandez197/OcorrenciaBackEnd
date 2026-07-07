@@ -2,12 +2,15 @@ C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\ma
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\config\FileStorageConfig.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\controller\OcorrenciaController.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\dto\request\OcorrenciaRequestDTO.java
-C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\dto\response\OcorrenciaResponseDTO.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\FotoOcorrencia.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\ObservacaoOcorrencia.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\Ocorrencia.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\StatusOcorrencia.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\exception\BusinessException.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\exception\handler\GlobalExceptionHandler.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\exception\NotFoundException.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\exception\ValidationException.java
-C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\model\OcorrenciaEntity.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\mapper\OcorrenciaDTO.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\OcorrenciasApplication.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\repository\OcorrenciaRepository.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\service\OcorrenciaService.java

@@ -1,25 +1,69 @@
-package com.coruja.ocorrencias.dto.response;
+package com.coruja.ocorrencias.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.coruja.ocorrencias.entity.StatusOcorrencia;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 
-public class OcorrenciaResponseDTO {
+@Entity(name = "relatorioocorrencia")
+public class Ocorrencia {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String titulo;
+
+    @Column(nullable = false)
     private String cliente;
+    @Column(nullable = false)
     private String localizacao;
+
     private String setor;
     private String area;
     private String departamento;
+
+    @Column(nullable = false)
     private String responsavel;
+
+    @Column(name = "data_inspecao", nullable = false)
     private LocalDate data_inspecao;
+
+    @Column(nullable = false)
     private String revisao;
-    private StatusOcorrencia status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusOcorrencia status = StatusOcorrencia.DRAFT;
+
+    @OneToMany(mappedBy = "ocorrencia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ObservacaoOcorrencia> observacoes = new ArrayList<>();
+
     private LocalDateTime criadoEm;
     private LocalDateTime atualizadoEm;
+
+    @PrePersist
+    public void prePersist() {
+        criadoEm = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        atualizadoEm = LocalDateTime.now();
+    }
 
     public Long getId() {
         return id;
@@ -107,6 +151,14 @@ public class OcorrenciaResponseDTO {
 
     public void setStatus(StatusOcorrencia status) {
         this.status = status;
+    }
+
+    public List<ObservacaoOcorrencia> getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(List<ObservacaoOcorrencia> observacoes) {
+        this.observacoes = observacoes;
     }
 
     public LocalDateTime getCriadoEm() {

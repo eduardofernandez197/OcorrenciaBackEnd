@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
-import com.coruja.ocorrencias.model.OcorrenciaEntity;
+import com.coruja.ocorrencias.entity.Ocorrencia;
 import com.coruja.ocorrencias.repository.OcorrenciaRepository;
 import com.coruja.ocorrencias.service.storage.FotoStorageService;
 import com.coruja.ocorrencias.validation.OcorrenciaValidator;
@@ -25,7 +25,7 @@ public class OcorrenciaService {
         this.repository = repository;
     }
 
-    public OcorrenciaEntity salvar(OcorrenciaRequestDTO dto) {
+    public Ocorrencia salvar(OcorrenciaRequestDTO dto) {
 
         validacoes.forEach(interfacevalidar -> interfacevalidar.validar(dto));
         // Para cada classe que implementar a interface ValidaOcorrencia vai fazer o
@@ -34,12 +34,12 @@ public class OcorrenciaService {
 
         List<String> caminhos = foto.salvarCaminho(dto);
 
-        OcorrenciaEntity entity = new OcorrenciaEntity();
-        entity.setTitulo(dto.getTitulo());
-        entity.setDescricao(dto.getDescricao());
-        entity.setDataCriacao(LocalDateTime.now());
-        entity.setEmailDestino(dto.getEmailDestino());
-        entity.setCaminhoFoto(caminhos);
+        // Ocorrencia entity = new Ocorrencia();
+        // entity.setTitulo(dto.getTitulo());
+        // entity.setDescricao(dto.getDescricao());
+        // entity.setDataCriacao(LocalDateTime.now());
+        // entity.setEmailDestino(dto.getEmailDestino());
+        // entity.setCaminhoFoto(caminhos);
 
         return repository.save(entity);
 

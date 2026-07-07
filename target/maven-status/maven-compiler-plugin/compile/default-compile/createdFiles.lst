@@ -1,4 +1,2 @@
-com\coruja\ocorrencias\model\OcorrenciaEntity.class
-com\coruja\ocorrencias\service\OcorrenciaService.class
 com\coruja\ocorrencias\OcorrenciasApplication.class
 com\coruja\ocorrencias\controller\OcorrenciaController.class
