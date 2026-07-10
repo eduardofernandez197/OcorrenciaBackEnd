@@ -18,7 +18,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
 @Entity(name = "relatorioocorrencia")
-public class Ocorrencia {
+public class OcorrenciaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,10 +47,10 @@ public class Ocorrencia {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StatusOcorrencia status = StatusOcorrencia.DRAFT;
+    private StatusOcorrenciaEntity status = StatusOcorrenciaEntity.DRAFT;
 
     @OneToMany(mappedBy = "ocorrencia", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ObservacaoOcorrencia> observacoes = new ArrayList<>();
+    private List<ObservacaoOcorrenciaEntity> observacoes = new ArrayList<>();
 
     private LocalDateTime criadoEm;
     private LocalDateTime atualizadoEm;
@@ -145,19 +145,19 @@ public class Ocorrencia {
         this.revisao = revisao;
     }
 
-    public StatusOcorrencia getStatus() {
+    public StatusOcorrenciaEntity getStatus() {
         return status;
     }
 
-    public void setStatus(StatusOcorrencia status) {
+    public void setStatus(StatusOcorrenciaEntity status) {
         this.status = status;
     }
 
-    public List<ObservacaoOcorrencia> getObservacoes() {
+    public List<ObservacaoOcorrenciaEntity> getObservacoes() {
         return observacoes;
     }
 
-    public void setObservacoes(List<ObservacaoOcorrencia> observacoes) {
+    public void setObservacoes(List<ObservacaoOcorrenciaEntity> observacoes) {
         this.observacoes = observacoes;
     }
 

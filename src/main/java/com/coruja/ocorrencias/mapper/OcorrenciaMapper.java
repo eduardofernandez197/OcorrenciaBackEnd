@@ -4,16 +4,16 @@ import java.time.LocalDate;
 
 import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
-import com.coruja.ocorrencias.entity.Ocorrencia;
+import com.coruja.ocorrencias.entity.OcorrenciaEntity;
 
 public class OcorrenciaMapper {
 
-    public Ocorrencia toEntity(OcorrenciaRequestDTO dto) {
+    public OcorrenciaEntity toEntity(OcorrenciaRequestDTO dto) {
         if (dto == null) {
             return null;
         }
 
-        Ocorrencia ocorrencia = new Ocorrencia();
+        OcorrenciaEntity ocorrencia = new OcorrenciaEntity();
         ocorrencia.setTitulo(dto.getTitulo());
         ocorrencia.setCliente(dto.getCliente());
         ocorrencia.setLocalizacao(dto.getLocalizacao());
@@ -27,7 +27,7 @@ public class OcorrenciaMapper {
         return ocorrencia;
     }
 
-    public OcorrenciaResponseDTO toDto(Ocorrencia ocorrencia) {
+    public OcorrenciaResponseDTO toDto(OcorrenciaEntity ocorrencia) {
         if (ocorrencia == null) {
             return null;
         }
@@ -51,4 +51,4 @@ public class OcorrenciaMapper {
     }
 }
 
-// continuar do mapper para frente 06/07/26
+

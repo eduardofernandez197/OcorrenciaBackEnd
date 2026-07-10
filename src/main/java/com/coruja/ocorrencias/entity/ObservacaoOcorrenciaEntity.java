@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "observacao_ocorencia")
-public class ObservacaoOcorrencia {
+public class ObservacaoOcorrenciaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class ObservacaoOcorrencia {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "ocorrencia_id")
-    private Ocorrencia ocorrencia;
+    private OcorrenciaEntity ocorrencia;
 
     @Column(nullable = false)
     private String titulo;
@@ -35,7 +35,7 @@ public class ObservacaoOcorrencia {
     private String descricao;
 
     @OneToMany(mappedBy = "observacao", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<FotoOcorrencia> fotos = new ArrayList<>();
+    private List<FotoOcorrenciaEntity> fotos = new ArrayList<>();
 
     private LocalDateTime criadoEm;
 
@@ -52,11 +52,11 @@ public class ObservacaoOcorrencia {
         this.id = id;
     }
 
-    public Ocorrencia getOcorrencia() {
+    public OcorrenciaEntity getOcorrencia() {
         return ocorrencia;
     }
 
-    public void setOcorrencia(Ocorrencia ocorrencia) {
+    public void setOcorrencia(OcorrenciaEntity ocorrencia) {
         this.ocorrencia = ocorrencia;
     }
 
@@ -76,11 +76,11 @@ public class ObservacaoOcorrencia {
         this.descricao = descricao;
     }
 
-    public List<FotoOcorrencia> getFotos() {
+    public List<FotoOcorrenciaEntity> getFotos() {
         return fotos;
     }
 
-    public void setFotos(List<FotoOcorrencia> fotos) {
+    public void setFotos(List<FotoOcorrenciaEntity> fotos) {
         this.fotos = fotos;
     }
 

@@ -2,9 +2,9 @@ package com.coruja.ocorrencias.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.coruja.ocorrencias.entity.Ocorrencia;
+import com.coruja.ocorrencias.entity.OcorrenciaEntity;
 
 
-public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
+public interface OcorrenciaRepository extends JpaRepository<OcorrenciaEntity, Long> {
 
 }

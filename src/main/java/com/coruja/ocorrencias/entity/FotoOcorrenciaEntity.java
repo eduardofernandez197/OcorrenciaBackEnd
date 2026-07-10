@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "foto_ocorrencia")
-public class FotoOcorrencia {
+public class FotoOcorrenciaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class FotoOcorrencia {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "observacao_id")
-    private ObservacaoOcorrencia observacao;
+    private ObservacaoOcorrenciaEntity observacao;
 
     @Column(name = "url_foto", nullable = false)
     private String urlFoto;
@@ -33,11 +33,11 @@ public class FotoOcorrencia {
         this.id = id;
     }
 
-    public ObservacaoOcorrencia getObservacao() {
+    public ObservacaoOcorrenciaEntity getObservacao() {
         return observacao;
     }
 
-    public void setObservacao(ObservacaoOcorrencia observacao) {
+    public void setObservacao(ObservacaoOcorrenciaEntity observacao) {
         this.observacao = observacao;
     }
 

@@ -3,7 +3,7 @@ package com.coruja.ocorrencias.dto.response;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import com.coruja.ocorrencias.entity.StatusOcorrencia;
+import com.coruja.ocorrencias.entity.StatusOcorrenciaEntity;
 
 public class OcorrenciaResponseDTO {
 
@@ -17,7 +17,7 @@ public class OcorrenciaResponseDTO {
     private String responsavel;
     private LocalDate data_inspecao;
     private String revisao;
-    private StatusOcorrencia status;
+    private StatusOcorrenciaEntity status;
     private LocalDateTime criadoEm;
     private LocalDateTime atualizadoEm;
 
@@ -101,11 +101,11 @@ public class OcorrenciaResponseDTO {
         this.revisao = revisao;
     }
 
-    public StatusOcorrencia getStatus() {
+    public StatusOcorrenciaEntity getStatus() {
         return status;
     }
 
-    public void setStatus(StatusOcorrencia status) {
+    public void setStatus(StatusOcorrenciaEntity status) {
         this.status = status;
     }
 

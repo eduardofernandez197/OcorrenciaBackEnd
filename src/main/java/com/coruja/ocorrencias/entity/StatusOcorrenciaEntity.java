@@ -1,6 +1,6 @@
 package com.coruja.ocorrencias.entity;
 
-public enum StatusOcorrencia {
+public enum StatusOcorrenciaEntity {
     DRAFT,
     FINALIZADA
     
