@@ -1,3 +1,4 @@
+package com.coruja.ocorrencias.service.validation.storage;
 // package com.coruja.ocorrencias.service.storage;
 
 // import java.io.IOException;
