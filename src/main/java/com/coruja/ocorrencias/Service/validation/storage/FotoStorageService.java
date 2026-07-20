@@ -1,55 +1,55 @@
 package com.coruja.ocorrencias.service.validation.storage;
-// package com.coruja.ocorrencias.service.storage;
 
-// import java.io.IOException;
-// import java.nio.file.Files;
-// import java.nio.file.Path;
-// import java.util.ArrayList;
-// import java.util.List;
-// import java.util.UUID;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
-// import org.springframework.stereotype.Component;
-// import org.springframework.web.multipart.MultipartFile;
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
-// import com.coruja.ocorrencias.config.FileStorageConfig;
-// import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
+import com.coruja.ocorrencias.config.FileStorageConfig;
+import com.coruja.ocorrencias.dto.request.ObservacoesRequestDTO;
+import com.coruja.ocorrencias.service.arquivos.SalvaFotoInterface;
 
-// import jakarta.validation.ValidationException;
+import jakarta.validation.ValidationException;
 
-// @Component
-// public class FotoStorageService {
+@Component
+public class FotoStorageService implements SalvaFotoInterface{
 
-//     private FileStorageConfig file;
+    private FileStorageConfig file;
 
-//     public FotoStorageService(FileStorageConfig file) {
-//         this.file = file;
-//     }
+    public FotoStorageService(FileStorageConfig file) {
+        this.file = file;
+    }
 
-//     public List<String> salvarCaminho (OcorrenciaRequestDTO dto) {
+    public List<String> salvarFoto (ObservacoesRequestDTO dto) {
 
-//         List<String> caminhos = new ArrayList<>();
+        List<String> caminhos = new ArrayList<>();
 
-//         Path pastaUpload = Path.of(file.getUploadDir());
+        Path pastaUpload = Path.of(file.getUploadDir());
 
-//         try {
-//             for (MultipartFile caminhofotos : dto.getFoto()) {
-//                 Files.createDirectories(pastaUpload);
+        try {
+            for (MultipartFile caminhofotos : dto.getImagens()) {
+                Files.createDirectories(pastaUpload);
 
-//                 String caminho = caminhofotos.getOriginalFilename();
+                String caminho = caminhofotos.getOriginalFilename();
 
-//                 String nomeOriginal = UUID.randomUUID() + "-" + caminho;
+                String nomeOriginal = UUID.randomUUID() + "-" + caminho;
 
-//                 Path destino = pastaUpload.resolve(nomeOriginal);
+                Path destino = pastaUpload.resolve(nomeOriginal);
 
-//                 caminhofotos.transferTo(destino);
+                caminhofotos.transferTo(destino);
 
-//                 caminhos.add("ocorrencias/" + nomeOriginal);
-//             }
+                caminhos.add("ocorrencias/" + nomeOriginal);
+            }
 
-//         } catch (IOException e) {
-//             throw new ValidationException("Erro ao salvar foto na pasta upload - local", e);
-//         }
-//         return caminhos;
+        } catch (IOException e) {
+            throw new ValidationException("Erro ao salvar foto na pasta upload - local", e);
+        }
+        return caminhos;
 
-//     }
-// }
+    }
+}
