@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
+import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 import com.coruja.ocorrencias.service.OcorrenciaService;
 import jakarta.validation.Valid;
 
@@ -21,13 +22,12 @@ public class OcorrenciaController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> salvar(@Valid @ModelAttribute OcorrenciaRequestDTO dto) {
+    public ResponseEntity<OcorrenciaResponseDTO> salvar(@Valid @ModelAttribute OcorrenciaRequestDTO dto) {
 
-        service.salvar(dto);
+        OcorrenciaResponseDTO response = service.salvar(dto);
 
-        return ResponseEntity.status(201).build();
+        return ResponseEntity.status(201).body(response);
 
     }
 
 }
- 

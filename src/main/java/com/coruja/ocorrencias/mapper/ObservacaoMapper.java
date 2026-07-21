@@ -1,9 +1,14 @@
 package com.coruja.ocorrencias.mapper;
 
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
+
 import com.coruja.ocorrencias.dto.request.ObservacoesRequestDTO;
 import com.coruja.ocorrencias.dto.response.ObservacoesResponseDTO;
 import com.coruja.ocorrencias.entity.ObservacaoOcorrenciaEntity;
 
+@Component
 public class ObservacaoMapper {
 
     public ObservacaoOcorrenciaEntity toEntity(ObservacoesRequestDTO dto) {
@@ -28,6 +33,9 @@ public class ObservacaoMapper {
         dto.setTitulo(observacao.getTitulo());
         dto.setDescricao(observacao.getDescricao());
         dto.setCriadoEm(observacao.getCriadoEm());
+        dto.setFotos(observacao.getFotos().stream()
+                .map(foto -> foto.getUrlFoto())
+                .collect(Collectors.toList()));
 
         return dto;
 

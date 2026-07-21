@@ -2,10 +2,13 @@ package com.coruja.ocorrencias.mapper;
 
 import java.time.LocalDate;
 
+import org.springframework.stereotype.Component;
+
 import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 import com.coruja.ocorrencias.entity.OcorrenciaEntity;
 
+@Component
 public class OcorrenciaMapper {
 
     public OcorrenciaEntity toEntity(OcorrenciaRequestDTO dto) {

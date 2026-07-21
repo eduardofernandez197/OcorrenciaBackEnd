@@ -23,15 +23,18 @@ public class validaFormatoFoto implements SalvaFotoInterface {
 
         for (MultipartFile fotos : foto) {
             String nome = fotos.getOriginalFilename();
-            if (nome == null) {
-                throw new BusinessException("Foto veio null");
+            if (fotos.isEmpty()) {
+                throw new BusinessException("Foto veio vazia");
+            }
+            if (nome == null || !nome.contains(".")) {
+                throw new BusinessException("Foto sem extensao");
             }
             String ext = nome.substring(nome.lastIndexOf(".") + 1).toLowerCase();
             if (!ext.equals("jpg") && !ext.equals("jpeg") && !ext.equals("png")) {
                 throw new BusinessException("Apenas arquivos JPG e PNG sao permitidos");
             }
+            nomesFotos.add(nome);
         }
-      
-        
+        return nomesFotos;
     }
 }
