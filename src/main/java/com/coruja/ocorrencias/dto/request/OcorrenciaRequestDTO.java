@@ -2,6 +2,7 @@ package com.coruja.ocorrencias.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 
+// DTO de entrada usado para receber os dados principais de uma nova ocorrencia.
 public class OcorrenciaRequestDTO {
 
     @NotBlank(message = "Titulo é Obrigatório")

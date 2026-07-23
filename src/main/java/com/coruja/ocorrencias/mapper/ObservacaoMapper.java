@@ -9,6 +9,7 @@ import com.coruja.ocorrencias.dto.response.ObservacoesResponseDTO;
 import com.coruja.ocorrencias.entity.ObservacaoOcorrenciaEntity;
 
 @Component
+// Mapper que converte observacao entre DTO de entrada/saida e entidade do banco.
 public class ObservacaoMapper {
 
     public ObservacaoOcorrenciaEntity toEntity(ObservacoesRequestDTO dto) {

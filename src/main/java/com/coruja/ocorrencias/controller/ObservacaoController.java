@@ -15,6 +15,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/ocorrencias/{ocorrenciaId}/observacoes")
+// Controller responsavel por cadastrar observacoes vinculadas a uma ocorrencia existente.
 public class ObservacaoController {
 
     private final OcorrenciaObservacaoService service;

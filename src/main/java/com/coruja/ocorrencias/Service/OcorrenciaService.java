@@ -10,6 +10,7 @@ import com.coruja.ocorrencias.mapper.OcorrenciaMapper;
 import com.coruja.ocorrencias.repository.OcorrenciaRepository;
 
 @Service
+// Service que contem a regra de cadastro da ocorrencia principal.
 public class OcorrenciaService {
 
     private final OcorrenciaMapper ocorrenciaMapper;

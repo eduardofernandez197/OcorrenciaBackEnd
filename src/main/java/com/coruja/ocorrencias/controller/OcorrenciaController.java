@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/upload")
+// Controller responsavel por receber os dados principais da ocorrencia e criar o registro inicial.
 public class OcorrenciaController {
 
     private final OcorrenciaService service;

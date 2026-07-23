@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+// Configuracao que le o diretorio onde os arquivos enviados serao armazenados.
 public class FileStorageConfig {
 
     @Value("${upload.dir}")

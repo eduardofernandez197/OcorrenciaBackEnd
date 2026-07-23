@@ -9,6 +9,7 @@ import com.coruja.ocorrencias.exception.NotFoundException;
 
 
     @RestControllerAdvice
+// Classe responsavel por capturar exceptions e transformar em respostas HTTP padronizadas.
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(BusinessException.class)

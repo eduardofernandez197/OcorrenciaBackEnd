@@ -3,6 +3,7 @@ package com.coruja.ocorrencias.dto.response;
 import java.time.LocalDateTime;
 import java.util.List;
 
+// DTO de saida usado para devolver ao cliente os dados de uma observacao cadastrada.
 public class ObservacoesResponseDTO {
 
     private Long id;

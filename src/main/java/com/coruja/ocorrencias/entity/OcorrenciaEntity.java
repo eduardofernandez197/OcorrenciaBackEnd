@@ -18,6 +18,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
 @Entity(name = "relatorioocorrencia")
+// Entidade principal do relatorio de ocorrencia. Representa os dados gerais salvos no banco.
 public class OcorrenciaEntity {
 
     @Id

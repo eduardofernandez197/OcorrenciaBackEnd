@@ -18,6 +18,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "observacao_ocorrencia")
+// Entidade que representa uma observacao dentro de uma ocorrencia, podendo conter varias fotos.
 public class ObservacaoOcorrenciaEntity {
 
     @Id

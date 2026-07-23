@@ -17,6 +17,7 @@ import com.coruja.ocorrencias.service.arquivos.SalvaFotoInterface;
 import jakarta.validation.ValidationException;
 
 @Component
+// Componente responsavel por salvar fisicamente as imagens recebidas na pasta configurada.
 public class FotoStorageService implements SalvaFotoInterface{
 
     private FileStorageConfig file;

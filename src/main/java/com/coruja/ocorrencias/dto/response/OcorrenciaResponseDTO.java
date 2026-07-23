@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import com.coruja.ocorrencias.entity.StatusOcorrenciaEntity;
 
+// DTO de saida usado para devolver ao cliente os dados de uma ocorrencia cadastrada.
 public class OcorrenciaResponseDTO {
 
     private Long id;

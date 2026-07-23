@@ -17,6 +17,7 @@ import com.coruja.ocorrencias.service.validation.validaFormatoFoto;
 import com.coruja.ocorrencias.service.validation.storage.FotoStorageService;
 
 @Service
+// Service que cadastra observacoes, vincula com a ocorrencia e relaciona as fotos salvas.
 public class OcorrenciaObservacaoService {
 
     private final ObservacaoMapper observacoesMapper;
