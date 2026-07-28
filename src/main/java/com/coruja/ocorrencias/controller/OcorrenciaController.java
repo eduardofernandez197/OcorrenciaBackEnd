@@ -1,7 +1,9 @@
 package com.coruja.ocorrencias.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +30,15 @@ public class OcorrenciaController {
         OcorrenciaResponseDTO response = service.salvar(dto);
 
         return ResponseEntity.status(201).body(response);
+
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<OcorrenciaResponseDTO> buscarPorId(@PathVariable Long id) {
+
+        OcorrenciaResponseDTO response = service.buscarPorId(id);
+
+        return ResponseEntity.ok(response);
 
     }
 

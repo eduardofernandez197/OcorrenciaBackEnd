@@ -6,6 +6,7 @@ import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 
 import com.coruja.ocorrencias.entity.OcorrenciaEntity;
+import com.coruja.ocorrencias.exception.NotFoundException;
 import com.coruja.ocorrencias.mapper.OcorrenciaMapper;
 import com.coruja.ocorrencias.repository.OcorrenciaRepository;
 
@@ -30,6 +31,15 @@ public class OcorrenciaService {
         OcorrenciaResponseDTO ocorrenciaResponse = ocorrenciaMapper.toDto(ocorrenciaSalva);
 
         return ocorrenciaResponse;
+
+    }
+
+    public OcorrenciaResponseDTO buscarPorId(Long id) {
+
+        OcorrenciaEntity ocorrencia = repository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Ocorrencia nao encontrada"));
+
+        return ocorrenciaMapper.toDto(ocorrencia);
 
     }
 }
