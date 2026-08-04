@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.coruja.ocorrencias.dto.request.ObservacoesRequestDTO;
 import com.coruja.ocorrencias.dto.response.ObservacoesResponseDTO;
+import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 import com.coruja.ocorrencias.service.OcorrenciaObservacaoService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/ocorrencias/{ocorrenciaId}/observacoes")
@@ -32,4 +36,13 @@ public class ObservacaoController {
 
         return ResponseEntity.status(201).body(response);
     }
+    @GetMapping("/id")
+    public ResponseEntity<ObservacoesResponseDTO> buscaPorId(@PathVariable Long id) {
+        
+        ObservacoesResponseDTO observacoes = 
+
+        return ;
+    }
+    
+
 }

@@ -11,31 +11,35 @@ import com.coruja.ocorrencias.entity.OcorrenciaEntity;
 import com.coruja.ocorrencias.entity.ObservacaoOcorrenciaEntity;
 import com.coruja.ocorrencias.exception.NotFoundException;
 import com.coruja.ocorrencias.mapper.ObservacaoMapper;
+import com.coruja.ocorrencias.mapper.OcorrenciaMapper;
 import com.coruja.ocorrencias.repository.ObservacaoRepository;
 import com.coruja.ocorrencias.repository.OcorrenciaRepository;
 import com.coruja.ocorrencias.service.validation.validaFormatoFoto;
 import com.coruja.ocorrencias.service.validation.storage.FotoStorageService;
 
 @Service
-// Service que cadastra observacoes, vincula com a ocorrencia e relaciona as fotos salvas.
+// Service que cadastra observacoes, vincula com a ocorrencia e relaciona as
+// fotos salvas.
 public class OcorrenciaObservacaoService {
 
+   
     private final ObservacaoMapper observacoesMapper;
     private final ObservacaoRepository observacaoRepository;
     private final OcorrenciaRepository ocorrenciaRepository;
     private final validaFormatoFoto validaFormatoFoto;
     private final FotoStorageService fotoStorageService;
+    private final OcorrenciaRepository repository;
 
-    public OcorrenciaObservacaoService(ObservacaoMapper observacoesMapper,
-            ObservacaoRepository observacaoRepository,
+    public OcorrenciaObservacaoService(ObservacaoMapper observacoesMapper, ObservacaoRepository observacaoRepository,
             OcorrenciaRepository ocorrenciaRepository,
-            validaFormatoFoto validaFormatoFoto,
-            FotoStorageService fotoStorageService) {
+            com.coruja.ocorrencias.service.validation.validaFormatoFoto validaFormatoFoto,
+            FotoStorageService fotoStorageService, OcorrenciaRepository repository, OcorrenciaMapper ocorrenciaMapper) {
         this.observacoesMapper = observacoesMapper;
         this.observacaoRepository = observacaoRepository;
         this.ocorrenciaRepository = ocorrenciaRepository;
         this.validaFormatoFoto = validaFormatoFoto;
         this.fotoStorageService = fotoStorageService;
+        this.repository = repository;
     }
 
     public ObservacoesResponseDTO salvar(Long ocorrenciaId, ObservacoesRequestDTO dto) {
@@ -60,5 +64,13 @@ public class OcorrenciaObservacaoService {
         ObservacaoOcorrenciaEntity observacaoSalva = observacaoRepository.save(observacao);
 
         return observacoesMapper.toDto(observacaoSalva);
+    }
+
+    public ObservacoesResponseDTO buscarPorId(Long id) {
+
+        ObservacaoOcorrenciaEntity observacao = observacaoRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Ocorrencia nao encontrada"));
+
+        return observacoesMapper.toDto(observacao);
     }
 }

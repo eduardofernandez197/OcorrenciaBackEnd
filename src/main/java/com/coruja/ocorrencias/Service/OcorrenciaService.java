@@ -45,21 +45,22 @@ public class OcorrenciaService {
 
     }
 
-    public OcorrenciaResponseDTO atualizaPorId (Long id, OcorrenciaRequestDTO dto){
+    public OcorrenciaResponseDTO atualizaPorId(Long id, OcorrenciaRequestDTO dto) {
 
-       OcorrenciaEntity ocorrencia = repository.findById(id).orElseThrow(()-> new NotFoundException("Ocorrencia nao encontrada"));
+        OcorrenciaEntity ocorrencia = repository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Ocorrencia nao encontrada"));
 
-    ocorrencia.setTitulo(dto.getTitulo());
-    ocorrencia.setCliente(dto.getCliente());
-    ocorrencia.setLocalizacao(dto.getLocalizacao());
-    ocorrencia.setSetor(dto.getSetor());
-    ocorrencia.setArea(dto.getArea());
-    ocorrencia.setDepartamento(dto.getDepartamento());
-    ocorrencia.setResponsavel(dto.getResponsavel());
-    ocorrencia.setData_inspecao(LocalDate.parse(dto.getData_inspecao()));
-    ocorrencia.setRevisao(dto.getRevisao());
+        ocorrencia.setTitulo(dto.getTitulo());
+        ocorrencia.setCliente(dto.getCliente());
+        ocorrencia.setLocalizacao(dto.getLocalizacao());
+        ocorrencia.setSetor(dto.getSetor());
+        ocorrencia.setArea(dto.getArea());
+        ocorrencia.setDepartamento(dto.getDepartamento());
+        ocorrencia.setResponsavel(dto.getResponsavel());
+        ocorrencia.setData_inspecao(LocalDate.parse(dto.getData_inspecao()));
+        ocorrencia.setRevisao(dto.getRevisao());
 
-    OcorrenciaEntity ocorrenciaSalva = repository.save(ocorrencia);
+        OcorrenciaEntity ocorrenciaSalva = repository.save(ocorrencia);
 
         return ocorrenciaMapper.toDto(ocorrenciaSalva);
     }
