@@ -24,6 +24,7 @@ public class ObservacaoController {
 
     private final OcorrenciaObservacaoService service;
 
+
     public ObservacaoController(OcorrenciaObservacaoService service) {
         this.service = service;
     }
@@ -39,10 +40,12 @@ public class ObservacaoController {
     @GetMapping("/id")
     public ResponseEntity<ObservacoesResponseDTO> buscaPorId(@PathVariable Long id) {
         
-        ObservacoesResponseDTO observacoes = 
+        ObservacoesResponseDTO observacoes = service.buscarPorId(id);
 
-        return ;
+        return ResponseEntity.ok(observacoes);
     }
-    
+
+    //  @GetMapping("/ocorrencias")
+    //  public 
 
 }
