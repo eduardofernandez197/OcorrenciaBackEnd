@@ -1,6 +1,7 @@
 package com.coruja.ocorrencias.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -64,5 +65,12 @@ public class OcorrenciaService {
 
         return ocorrenciaMapper.toDto(ocorrenciaSalva);
     }
+    
+    public List<OcorrenciaResponseDTO> buscarUltimasTresOcorrencias() {
+    return repository.findTop3ByOrderByCriadoEmDesc()
+            .stream()
+            .map(ocorrenciaMapper::toDto)
+            .toList();
+}
 
 }
