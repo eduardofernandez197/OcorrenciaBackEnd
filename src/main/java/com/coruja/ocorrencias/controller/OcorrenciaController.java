@@ -1,5 +1,7 @@
 package com.coruja.ocorrencias.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,16 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
+import com.coruja.ocorrencias.dto.response.ObservacoesResponseDTO;
 import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 import com.coruja.ocorrencias.service.OcorrenciaService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 @RequestMapping("/ocorrencias")
-// Controller responsavel por receber os dados principais da ocorrencia e criar o registro inicial.
+// Controller responsavel por receber os dados principais da ocorrencia e criar
+// o registro inicial.
 public class OcorrenciaController {
 
     private final OcorrenciaService service;
@@ -28,7 +31,7 @@ public class OcorrenciaController {
     }
 
     @PostMapping
-    public ResponseEntity<OcorrenciaResponseDTO> salvar(@Valid @ModelAttribute OcorrenciaRequestDTO dto) {
+    public ResponseEntity<OcorrenciaResponseDTO> salvar(@Valid @RequestBody OcorrenciaRequestDTO dto) {
 
         OcorrenciaResponseDTO response = service.salvar(dto);
 
@@ -44,13 +47,24 @@ public class OcorrenciaController {
         return ResponseEntity.ok(response);
 
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<OcorrenciaResponseDTO>atualizaPorId(@PathVariable Long id, @RequestBody OcorrenciaRequestDTO dto) {
+    public ResponseEntity<OcorrenciaResponseDTO> atualizaPorId(@PathVariable Long id,
+            @RequestBody OcorrenciaRequestDTO dto) {
 
         OcorrenciaResponseDTO response = service.atualizaPorId(id, dto);
 
+        return ResponseEntity.ok(response);
 
-        return ResponseEntity.ok(response);  
+    }
+
+    @GetMapping("/buscarUltimasTresOcorrencia")
+    public ResponseEntity<List<OcorrenciaResponseDTO>> buscarUltimasTresOcorrencias() {
+
+        List<OcorrenciaResponseDTO> observacoes = service.buscarUltimasTresOcorrencias();
+
+        return ResponseEntity.ok(observacoes);
+
     }
 
 }

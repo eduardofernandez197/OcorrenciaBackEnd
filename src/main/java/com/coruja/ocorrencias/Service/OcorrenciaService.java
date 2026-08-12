@@ -65,12 +65,12 @@ public class OcorrenciaService {
 
         return ocorrenciaMapper.toDto(ocorrenciaSalva);
     }
-    
+
     public List<OcorrenciaResponseDTO> buscarUltimasTresOcorrencias() {
-    return repository.findTop3ByOrderByCriadoEmDesc()
-            .stream()
-            .map(ocorrenciaMapper::toDto)
-            .toList();
-}
+        return repository.findTop3ByOrderByCriadoEmDesc()
+                .stream()
+                .map(ocorrenciaMapper::toDto)
+                .toList();
+    }
 
 }
