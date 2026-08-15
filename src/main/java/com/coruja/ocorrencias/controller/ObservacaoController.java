@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,16 +47,15 @@ public class ObservacaoController {
         ObservacoesResponseDTO observacoes = service.buscarPorId(id);
 
         return ResponseEntity.ok(observacoes);
-        
-        /*
-        @PostMapping("{id}")
-        public ResponseEntity<> atualizaPorId (@RequestBody String entity) {
-            //TODO: process POST request
+    }    
+    @PutMapping("{id}")
+    public ResponseEntity<ObservacoesResponseDTO> atualizaPorId (  @PathVariable Long id,
+    @Valid @ModelAttribute ObservacoesRequestDTO dto) {
             
-            return entity;
+        ObservacoesResponseDTO observacoes = service.atualizaPorId(id,  dto);
             
-        }
-        */
+        return ResponseEntity.ok(observacoes);
+            
     }
 
     @GetMapping

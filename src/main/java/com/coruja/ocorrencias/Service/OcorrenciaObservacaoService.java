@@ -22,7 +22,6 @@ import com.coruja.ocorrencias.service.validation.storage.FotoStorageService;
 // fotos salvas.
 public class OcorrenciaObservacaoService {
 
-   
     private final ObservacaoMapper observacoesMapper;
     private final ObservacaoRepository observacaoRepository;
     private final OcorrenciaRepository ocorrenciaRepository;
@@ -74,13 +73,38 @@ public class OcorrenciaObservacaoService {
         return observacoesMapper.toDto(observacao);
     }
 
+    public ObservacoesResponseDTO atualizaPorId (Long id, ObservacoesRequestDTO dto){
+
+        ObservacaoOcorrenciaEntity observacao = observacaoRepository.findById(id).orElseThrow(() -> new NotFoundException("Observacao nao encontrada"));
+
+        observacao.setTitulo(dto.getTitulo());
+        observacao.setDescricao(dto.getDescricao());
+        
+        observacao.getFotos().clear();
+
+        validaFormatoFoto.salvarFoto(dto);
+
+        List<String> caminhosFotos = fotoStorageService.salvarFoto(dto);
+
+        for (String caminhoFoto : caminhosFotos) {
+        FotoOcorrenciaEntity foto = new FotoOcorrenciaEntity();
+        foto.setUrlFoto(caminhoFoto);
+        foto.setObservacao(observacao);
+        observacao.getFotos().add(foto);
+    }
+        ObservacaoOcorrenciaEntity observacaoSalva = observacaoRepository.save(observacao);
+
+    return observacoesMapper.toDto(observacaoSalva);
+
+    }
+
     public List<ObservacoesResponseDTO> listarPorOcorrencia(Long ocorrenciaId) {
-    ocorrenciaRepository.findById(ocorrenciaId)
+        ocorrenciaRepository.findById(ocorrenciaId)
             .orElseThrow(() -> new NotFoundException("Ocorrencia nao encontrada"));
 
-    return observacaoRepository.findByOcorrencia_Id(ocorrenciaId)
-            .stream()
-            .map(observacoesMapper::toDto)
-            .toList();
+        return observacaoRepository.findByOcorrencia_Id(ocorrenciaId)
+                .stream()
+                .map(observacoesMapper::toDto)
+                .toList();
     }
 }
