@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.coruja.ocorrencias.exception.BusinessException;
 import com.coruja.ocorrencias.exception.NotFoundException;
 
-
+/**
+ * Tratador global de erros da API.
+ * Captura exceptions lancadas pelos services/controllers e transforma em respostas HTTP.
+ */
     @RestControllerAdvice
-// Classe responsavel por capturar exceptions e transformar em respostas HTTP padronizadas.
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(BusinessException.class)

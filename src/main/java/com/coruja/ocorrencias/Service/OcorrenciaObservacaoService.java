@@ -17,9 +17,11 @@ import com.coruja.ocorrencias.repository.OcorrenciaRepository;
 import com.coruja.ocorrencias.service.validation.validaFormatoFoto;
 import com.coruja.ocorrencias.service.validation.storage.FotoStorageService;
 
+/**
+ * Service de observacoes da ocorrencia.
+ * Centraliza as regras para criar, buscar e atualizar observacoes, validando e salvando fotos.
+ */
 @Service
-// Service que cadastra observacoes, vincula com a ocorrencia e relaciona as
-// fotos salvas.
 public class OcorrenciaObservacaoService {
 
     private final ObservacaoMapper observacoesMapper;
@@ -79,8 +81,6 @@ public class OcorrenciaObservacaoService {
 
         observacao.setTitulo(dto.getTitulo());
         observacao.setDescricao(dto.getDescricao());
-        
-        observacao.getFotos().clear();
 
         validaFormatoFoto.salvarFoto(dto);
 

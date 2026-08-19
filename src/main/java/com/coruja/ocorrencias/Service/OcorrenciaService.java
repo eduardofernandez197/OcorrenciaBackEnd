@@ -13,8 +13,11 @@ import com.coruja.ocorrencias.exception.NotFoundException;
 import com.coruja.ocorrencias.mapper.OcorrenciaMapper;
 import com.coruja.ocorrencias.repository.OcorrenciaRepository;
 
+/**
+ * Service de ocorrencias.
+ * Centraliza as regras para criar, buscar, atualizar e listar as ultimas ocorrencias.
+ */
 @Service
-// Service que contem a regra de cadastro da ocorrencia principal.
 public class OcorrenciaService {
 
     private final OcorrenciaMapper ocorrenciaMapper;

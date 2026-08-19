@@ -1,5 +1,6 @@
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\config\CorsConfig.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\config\FileStorageConfig.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\config\SecurityConfig.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\controller\ObservacaoController.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\controller\OcorrenciaController.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\dto\request\ObservacoesRequestDTO.java
@@ -10,6 +11,8 @@ C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\ma
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\ObservacaoOcorrenciaEntity.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\OcorrenciaEntity.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\StatusOcorrenciaEntity.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\usuarios\Role.java
+C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\entity\usuarios\Usuario.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\exception\BusinessException.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\exception\handler\GlobalExceptionHandler.java
 C:\Users\eduar\Desktop\relatorioOcorrencias\ocorrencias\OcorrenciaBackEnd\src\main\java\com\coruja\ocorrencias\exception\NotFoundException.java

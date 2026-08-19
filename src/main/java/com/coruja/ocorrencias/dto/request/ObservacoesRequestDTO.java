@@ -7,7 +7,10 @@ import org.springframework.web.multipart.MultipartFile;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
-// DTO de entrada usado para receber titulo, descricao e imagens de uma observacao.
+/**
+ * DTO de entrada da observacao.
+ * Representa os dados enviados pelo cliente, incluindo titulo, descricao e imagens.
+ */
 public class ObservacoesRequestDTO {
     
     @NotBlank(message = "Titulo é Obrigatório")

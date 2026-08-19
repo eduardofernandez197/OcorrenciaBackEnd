@@ -13,7 +13,10 @@ import com.coruja.ocorrencias.exception.BusinessException;
 import com.coruja.ocorrencias.service.arquivos.SalvaFotoInterface;
 @Component
 
-// Componente responsavel por validar se as fotos enviadas existem e possuem formato permitido.
+/**
+ * Validador de formato de foto.
+ * Confere se cada imagem existe, possui extensao e usa um formato permitido pela aplicacao.
+ */
 public class validaFormatoFoto implements SalvaFotoInterface {
     //Metodo que valida se a foto nao veio vazia e se veio no formato certo
 

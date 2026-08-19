@@ -5,8 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Configuracao de CORS da API.
+ * Define quais origens, metodos e headers o frontend pode usar ao chamar o backend.
+ */
 @Configuration
-// Configuracao de CORS. Define quais origens e metodos o frontend pode chamar na API.
 public class CorsConfig {
 
     @Bean

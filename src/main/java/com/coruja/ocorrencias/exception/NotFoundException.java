@@ -1,8 +1,9 @@
 package com.coruja.ocorrencias.exception;
-//classe de erro de somente de recursos não encontrados.
-//Ex: não encontrado no banco 
 
-// Exception usada quando algum recurso solicitado nao existe no banco.
+/**
+ * Exception para recurso nao encontrado.
+ * Usada quando o cliente pede um registro que nao existe no banco.
+ */
 public class NotFoundException extends RuntimeException{
 
     public NotFoundException (String message){

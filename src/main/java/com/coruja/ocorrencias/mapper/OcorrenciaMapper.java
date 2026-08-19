@@ -8,8 +8,11 @@ import com.coruja.ocorrencias.dto.request.OcorrenciaRequestDTO;
 import com.coruja.ocorrencias.dto.response.OcorrenciaResponseDTO;
 import com.coruja.ocorrencias.entity.OcorrenciaEntity;
 
+/**
+ * Mapper de ocorrencia.
+ * Converte dados entre DTOs da API e a entidade usada pelo banco.
+ */
 @Component
-// Mapper que converte ocorrencia entre DTO de entrada/saida e entidade do banco.
 public class OcorrenciaMapper {
 
     public OcorrenciaEntity toEntity(OcorrenciaRequestDTO dto) {

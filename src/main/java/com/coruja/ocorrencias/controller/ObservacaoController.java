@@ -18,10 +18,12 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+/**
+ * Controller REST das observacoes de uma ocorrencia.
+ * Expoe endpoints para criar, buscar e atualizar observacoes vinculadas a uma ocorrencia.
+ */
 @RestController
 @RequestMapping("/ocorrencias/{ocorrenciaId}/observacoes")
-// Controller responsavel por cadastrar observacoes vinculadas a uma ocorrencia existente.
 public class ObservacaoController {
 
     private final OcorrenciaObservacaoService service;

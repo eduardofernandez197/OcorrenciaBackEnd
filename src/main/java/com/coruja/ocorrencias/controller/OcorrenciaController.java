@@ -18,10 +18,12 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+/**
+ * Controller REST das ocorrencias principais.
+ * Recebe requisicoes HTTP, valida os dados de entrada e delega as regras para o service.
+ */
 @RestController
 @RequestMapping("/ocorrencias")
-// Controller responsavel por receber os dados principais da ocorrencia e criar
-// o registro inicial.
 public class OcorrenciaController {
 
     private final OcorrenciaService service;

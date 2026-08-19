@@ -16,9 +16,12 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
+/**
+ * Entidade de observacao da ocorrencia.
+ * Representa no banco uma observacao vinculada a uma ocorrencia e suas fotos.
+ */
 @Entity
 @Table(name = "observacao_ocorrencia")
-// Entidade que representa uma observacao dentro de uma ocorrencia, podendo conter varias fotos.
 public class ObservacaoOcorrenciaEntity {
 
     @Id

@@ -17,8 +17,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
+/**
+ * Entidade principal de ocorrencia.
+ * Representa no banco os dados gerais do relatorio e o relacionamento com observacoes.
+ */
 @Entity(name = "relatorioocorrencia")
-// Entidade principal do relatorio de ocorrencia. Representa os dados gerais salvos no banco.
 public class OcorrenciaEntity {
 
     @Id

@@ -10,9 +10,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+/**
+ * Entidade de foto da observacao.
+ * Guarda no banco a URL/caminho da imagem e a observacao a qual ela pertence.
+ */
 @Entity
 @Table(name = "foto_ocorrencia")
-// Entidade que representa uma foto vinculada a uma observacao de ocorrencia.
 public class FotoOcorrenciaEntity {
 
     @Id
