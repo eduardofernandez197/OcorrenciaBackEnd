@@ -1,5 +1,7 @@
 package com.coruja.ocorrencias.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,13 +50,27 @@ public class ObservacaoController {
 
         return ResponseEntity.ok(observacoes);
     }    
-        @PutMapping("{id}")
-        public ResponseEntity<ObservacoesResponseDTO> atualizaPorId (  @PathVariable Long id,
-        @Valid @ModelAttribute ObservacoesRequestDTO dto) {
+    @PutMapping("{id}")
+    public ResponseEntity<ObservacoesResponseDTO> atualizaPorId (  @PathVariable Long id,
+    @Valid @ModelAttribute ObservacoesRequestDTO dto) {
             
-            ObservacoesResponseDTO observacoes = service.atualizaPorId(id,  dto);
+        ObservacoesResponseDTO observacoes = service.atualizaPorId(id,  dto);
             
-            return ResponseEntity.ok(observacoes);
+        return ResponseEntity.ok(observacoes);
             
+<<<<<<< HEAD
         }
     }
+=======
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ObservacoesResponseDTO>> listarPorOcorrencia(
+            @PathVariable Long ocorrenciaId
+    ) {
+        List<ObservacoesResponseDTO> response = service.listarPorOcorrencia(ocorrenciaId);
+
+        return ResponseEntity.ok(response);
+    }
+}
+>>>>>>> 6c4e84dac9ae89f7cba2ce0d60141152a2e39e08

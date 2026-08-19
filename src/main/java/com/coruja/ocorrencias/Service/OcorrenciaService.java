@@ -75,5 +75,4 @@ public class OcorrenciaService {
                 .map(ocorrenciaMapper::toDto)
                 .toList();
     }
-
 }

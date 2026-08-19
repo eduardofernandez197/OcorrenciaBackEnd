@@ -98,5 +98,15 @@ public class OcorrenciaObservacaoService {
 
     }
 
+    public List<ObservacoesResponseDTO> listarPorOcorrencia(Long ocorrenciaId) {
+        ocorrenciaRepository.findById(ocorrenciaId)
+            .orElseThrow(() -> new NotFoundException("Ocorrencia nao encontrada"));
 
+        return observacaoRepository.findByOcorrencia_Id(ocorrenciaId)
+                .stream()
+                .map(observacoesMapper::toDto)
+                .toList();
+    }
 }
+
+
